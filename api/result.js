@@ -2,6 +2,7 @@ export default async function handler(req, res) {
   const url = "https://91appt.com/api/game/xy28/xy28History";
 
   try {
+    // Built-in fetch (no node-fetch required)
     const response = await fetch(url);
     const data = await response.json();
 
@@ -13,7 +14,7 @@ export default async function handler(req, res) {
     res.status(200).json(data);
 
   } catch (error) {
-    console.error("API Error:", error);  // 👉 असली error log होगा
+    console.error("API Error:", error);
     res.status(500).json({ 
       error: "Unable to fetch data", 
       details: error.message 
